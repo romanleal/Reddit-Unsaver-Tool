@@ -1,0 +1,23 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import time
+options = Options()
+options.add_argument("--disable-infobars")
+driver = webdriver.Chrome(executable_path=[filepath])
+driver.get('https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2F')
+username_field = 'loginUsername'
+password_field = 'loginPassword'
+username_box = driver.find_element_by_id(username_field)
+password_box = driver.find_element_by_id(password_field)
+username_box.click
+username_box.send_keys('[myusername]')
+password_box.click()
+password_box.send_keys('[mypassword]')
+password_box.submit()
+time.sleep(4)
+driver.get("https://www.reddit.com/user/ShimadaKambei/saved/")
+unsave_button_class = 'unsave'
+unsave = driver.find_elements_by_partial_link_text(unsave_button_class)
+for x in range(0, len(unsave)):
+    if unsave[x].is_displayed():
+        unsave[x].click()
