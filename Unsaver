@@ -16,8 +16,8 @@ password_box.send_keys('[mypassword]')
 password_box.submit()
 time.sleep(4)
 driver.get("https://www.reddit.com/user/[myusername]/saved/")
-unsave_button_class = 'unsave'
-unsave = driver.find_elements_by_partial_link_text(unsave_button_class)
+xpath = '//*[text()="unsave"]'
+unsave = driver.find_elements_by_xpath(xpath)
 for x in range(0, len(unsave)):
     if unsave[x].is_displayed():
         unsave[x].click()
