@@ -15,7 +15,7 @@ password_box.click()
 password_box.send_keys('[mypassword]')
 password_box.submit()
 time.sleep(4)
-driver.get("https://www.reddit.com/user/ShimadaKambei/saved/")
+driver.get("https://www.reddit.com/user/[myusername]/saved/")
 unsave_button_class = 'unsave'
 unsave = driver.find_elements_by_partial_link_text(unsave_button_class)
 for x in range(0, len(unsave)):
